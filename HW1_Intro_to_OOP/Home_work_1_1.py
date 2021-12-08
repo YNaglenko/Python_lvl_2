@@ -5,32 +5,13 @@
 
 
 class Product:
-    def __init__(self, descr, price, weight):
-        self.descr = descr
+    def __init__(self, description, price, weight):
+        self.description = description
         self.price = price
         self.weight = weight
-        self.item = {"descr": self.descr,
-                     "price": self.price,
-                     "weight": self.weight
-                     }
 
     def __str__(self):
-        txt = ""
-        for key in self.item.keys():
-            txt += key + ":" + str(self.item[key]) + " "
-        return "Good [" + txt + "]"
-
-    def set_price(self, new_price):
-        self.item["price"] = new_price
-        return "New price was set"
-
-    def set_weight(self, new_weight):
-        self.item["weight"] = new_weight
-        return "New weight was set"
-
-    def set_weight(self, new_descr):
-        self.item["descr"] = new_descr
-        return "New weight was set"
+        return "Good [description: {}, price: {}, weight {}]".format(self.description, self.price, self.weight)
 
 
 new_good_1 = Product("Phone", 250.75, 0.15)
@@ -41,6 +22,5 @@ print(new_good_1)
 print(new_good_2)
 print(new_good_3)
 
-new_good_2.set_price(100.00)
+new_good_2.price = 100.00
 print(new_good_2)
-
