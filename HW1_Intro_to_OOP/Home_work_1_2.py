@@ -8,7 +8,7 @@ class Customer:
         self.phone = phone
 
     def __str__(self):
-        return "Customer [name {}, surname: {}, phone: {}}".format(self.name,
+        return "Customer [name {}, surname: {}, phone: {}]".format(self.name,
                                                                   self.surname, self.phone)
 
 
