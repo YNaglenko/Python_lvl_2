@@ -9,7 +9,7 @@ class Customer:
 
     def __str__(self):
         return "Customer [name {}, surname: {}, phone: {}]".format(self.name,
-                                                                  self.surname, self.phone)
+                                                                   self.surname, self.phone)
 
 
 my_customer = Customer("John", "Smith", "380441234578")
