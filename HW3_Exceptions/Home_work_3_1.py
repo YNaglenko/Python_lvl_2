@@ -24,3 +24,5 @@ while True:
         print(err)
     except NegativeValueError as err:
         print(err, " ", err.amount)
+
+print("The price is:", amt)

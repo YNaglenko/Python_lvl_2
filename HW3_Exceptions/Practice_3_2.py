@@ -1,10 +1,15 @@
-# 2) Модифицируйте класс Группа (задание прошлой лекции) так, чтобы при
-# попытке  добавления  в  группу  более  10-ти  студентов,  было  возбужденно
-# пользовательское  исключение.  Таким  образом  нужно  создать  еще  и
-# пользовательское исключение для этой ситуации. И обработать его.
+# 1)  Создайте  класс,  описывающий  человека  (создайте  метод,  выводящий
+# информацию о чeловеке).
+# 2)  На  его  основе  создайте  класс  Студент  (переопределите  метод  вывода
+# информации).
+# 3)  Создайте  класс  Группа,  который  содержит  список  из  объектов  класса
+# Студент. Реализуйте методы добавления, удаления студента и метод поиска
+# студента  по  фамилии.  Определите  для  Группы  метод  __str__()  для
+# возвращения списка студентов в виде строки.
+# Клас Людина
 
-
-class GroupOverlimit(Exception):
+# Додана обробка вийнятків для кількості студентів
+class GroupOverLimit(Exception):
     def __init__(self, student):
         super().__init__()
         self.student = student
@@ -58,11 +63,11 @@ class Group:
     def add_stud(self, student):
         try:
             if len(self.students) >= 10:
-                raise GroupOverlimit(student)
+                raise GroupOverLimit(student)  # Виключення "переліміт групи"
             else:
                 self.students.append(student)
-                print("Student added successfully")
-        except GroupOverlimit as err:
+                print("Student added successfully: {} {}".format(student.name, student.surname))
+        except GroupOverLimit as err:
             print(err)
 
     def del_stud(self, surname, name):
@@ -93,7 +98,9 @@ student_9 = Student("stud9", "test", 20, "M", "KPI", "IHF")
 student_10 = Student("stud10", "test", 20, "M", "KPI", "IHF")
 student_11 = Student("stud11", "test", 20, "M", "KPI", "IHF")
 
+# Створення групи
 my_group = Group("FIOT", 2010, 2015)
+
 # Додаємо студентів у групу
 my_group.add_stud(student_1)
 my_group.add_stud(student_2)
@@ -106,5 +113,7 @@ my_group.add_stud(student_8)
 my_group.add_stud(student_9)
 my_group.add_stud(student_10)
 my_group.add_stud(student_11)
+
+print(my_group)
 
 
