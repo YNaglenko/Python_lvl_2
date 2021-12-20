@@ -13,16 +13,38 @@ class NegativeValueError(Exception):
         return "Positive amount expected, got negative"
 
 
-while True:
-    try:
-        amt = (input("Enter product price: "))
-        amt = float(amt)
-        if amt < 0:
-            raise NegativeValueError(amt)
-        break
-    except ValueError as err:
-        print(err)
-    except NegativeValueError as err:
-        print(err, " ", err.amount)
+class Product:
+    def __init__(self, description, price, weight):
+        self.description = description
+        self.price = price
+        self.weight = weight
 
-print("The price is:", amt)
+    def set_price(self, new_price):
+        prise_is_set_code = 0
+        try:
+            new_price = float(new_price)
+            if new_price < 0:
+                raise NegativeValueError(new_price)
+            self.price = new_price
+            prise_is_set_code = 1
+        except ValueError as err:
+            prise_is_set_code = -1
+            print(err, "CodeError:", prise_is_set_code)
+        except NegativeValueError as err:
+            prise_is_set_code = -2
+            print(err, " ", err.amount,"CodeError:", prise_is_set_code)
+        return prise_is_set_code
+
+    def __str__(self):
+        return "Product [description: {}, price: {}, weight {}]".format(self.description, self.price, self.weight)
+
+
+test_product = Product("Phone", 1700, 105)
+print(test_product)
+
+while True:
+    updated_price = input("Enter new price: ")
+    ans = test_product.set_price(updated_price)
+    if ans == 1:
+        break
+print(test_product)
