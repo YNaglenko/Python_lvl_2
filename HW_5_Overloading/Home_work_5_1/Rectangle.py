@@ -1,4 +1,5 @@
 import numbers
+import sys
 
 
 class IsZeroAttribute(Exception):
@@ -27,6 +28,7 @@ class Rectangle:
         try:
             if a_side == 0 or b_side == 0:
                 raise IsZeroAttribute(a_side, b_side)
+                return sys.exit()
             else:
                 self.a_side = a_side
                 self.b_side = b_side
@@ -34,6 +36,7 @@ class Rectangle:
                 raise NegativeValueError(a_side, b_side)
         except IsZeroAttribute as err:
             print(err)
+            return sys.exit()
 
         except NegativeValueError as err:
             print(err)
@@ -42,7 +45,7 @@ class Rectangle:
         return "Rectangle [a = {}, b = {}]".format(self.a_side, self.b_side)
 
     def get_area(self):
-        return self.a_side * self.b_side
+        area = self.a_side * self.b_side
 
     def __eq__(self, other):
         if isinstance(other, Rectangle):
