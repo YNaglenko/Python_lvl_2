@@ -10,4 +10,3 @@ if __name__ == "__main__":
     print(r_one, "Area:", r_one.get_area())
     r_one += r_two
     print(r_one, "Area:", r_one.get_area())
-

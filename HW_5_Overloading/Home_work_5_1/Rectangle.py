@@ -1,7 +1,42 @@
-class Rectangle:
+import numbers
+
+
+class IsZeroAttribute(Exception):
     def __init__(self, a_side, b_side):
+        super().__init__()
         self.a_side = a_side
         self.b_side = b_side
+
+    def __str__(self):
+        return "One of the sides with measures ({}, {}) cannot be 0".format(self.a_side, self.b_side)
+
+
+class NegativeValueError(Exception):
+    def __init__(self, a_side, b_side):
+        super().__init__()
+        self.a_side = a_side
+        self.b_side = b_side
+
+    def __str__(self):
+        return "One of the sides with measures ({}, {}) cannot be negative".format(self.a_side, self.b_side)
+
+
+class Rectangle:
+
+    def __init__(self, a_side, b_side):
+        try:
+            if a_side == 0 or b_side == 0:
+                raise IsZeroAttribute(a_side, b_side)
+            else:
+                self.a_side = a_side
+                self.b_side = b_side
+            if a_side < 0 or b_side < 0:
+                raise NegativeValueError(a_side, b_side)
+        except IsZeroAttribute as err:
+            print(err)
+
+        except NegativeValueError as err:
+            print(err)
 
     def __str__(self):
         return "Rectangle [a = {}, b = {}]".format(self.a_side, self.b_side)
@@ -53,4 +88,9 @@ class Rectangle:
     def __iadd__(self, other):
         if isinstance(other, Rectangle):
             self.b_side += (other.get_area() / self.a_side)
+        return self
+
+    def __mul__(self, other):
+        if isinstance(other, numbers.Real):
+            self.b_side * other
         return self
