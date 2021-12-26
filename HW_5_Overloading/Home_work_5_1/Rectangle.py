@@ -45,7 +45,7 @@ class Rectangle:
         return "Rectangle [a = {}, b = {}]".format(self.a_side, self.b_side)
 
     def get_area(self):
-        area = self.a_side * self.b_side
+        return self.a_side * self.b_side
 
     def __eq__(self, other):
         if isinstance(other, Rectangle):
@@ -86,14 +86,20 @@ class Rectangle:
     def __add__(self, other):
         if isinstance(other, Rectangle):
             self.b_side += (other.get_area() / self.a_side)
-        return self
+            return self
+        else:
+            NotImplemented
 
     def __iadd__(self, other):
         if isinstance(other, Rectangle):
             self.b_side += (other.get_area() / self.a_side)
-        return self
+            return self
+        else:
+            NotImplemented
 
     def __mul__(self, other):
         if isinstance(other, numbers.Real):
-            self.b_side * other
-        return self
+            self.b_side = self.b_side * other
+            return self
+        else:
+            NotImplemented
