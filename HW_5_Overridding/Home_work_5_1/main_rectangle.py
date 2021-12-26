@@ -1,4 +1,4 @@
-from HW_5_Overloading.Home_work_5_1.Rectangle import Rectangle
+from HW_5_Overridding.Home_work_5_1.Rectangle import Rectangle
 
 if __name__ == "__main__":
     r_one = Rectangle(2, 1)

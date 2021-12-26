@@ -1,4 +1,4 @@
-from HW_5_Overloading.Practice_5.PackOfMoney import PackOfMoney
+from HW_5_Overridding.Practice_5.PackOfMoney import PackOfMoney
 
 if __name__ == '__main__':
     a_pack = PackOfMoney()

@@ -1,4 +1,4 @@
-from HW_5_Overloading.Home_work_5_2.ProperFraction import ProperFraction
+from HW_5_Overridding.Home_work_5_2.ProperFraction import ProperFraction
 
 if __name__ == "__main__":
     pf_1 = ProperFraction(1, 3)
