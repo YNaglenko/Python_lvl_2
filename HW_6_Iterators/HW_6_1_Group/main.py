@@ -33,10 +33,5 @@ if __name__ == "__main__":
     my_group.add_stud(student_10)
     # my_group.add_stud(student_11)
 
-
-    print(len(my_group))
-    print(my_group[5])
-
-    test_group = (my_group[3:])
-    for t in test_group:
+    for t in my_group:
         print(t)
