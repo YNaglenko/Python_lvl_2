@@ -13,7 +13,6 @@ def gen_geometric_progression(b, q, stop):
             sys.exit()
         else:
             b = tmp_b
-
     return
 
 

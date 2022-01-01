@@ -17,10 +17,8 @@ def prime_digits(n):
         if is_prime == 1:
             yield i
         i += 1
-
     return
 
 
 primes = [p for p in prime_digits(100)]
 print(primes)
-
