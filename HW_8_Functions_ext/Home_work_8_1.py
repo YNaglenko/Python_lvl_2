@@ -21,7 +21,7 @@ def gen_func(b: int, stop: int) -> int:
 
 g2 = gen_func(2, 2)
 
-print(next(g2))  # (2 + 1) * 2 = 6
-print(next(g2))  # (6 + 1) * 2 = 14
+print(next(g2))  # 6
+print(next(g2))  # 14
 g2.send('stop')
 print(next(g2))
