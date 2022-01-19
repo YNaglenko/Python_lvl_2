@@ -25,4 +25,4 @@ class Card:
 newCard = Card()
 print(newCard)
 
-newCard.card_mask = 111
+newCard.card_mask = 1111
