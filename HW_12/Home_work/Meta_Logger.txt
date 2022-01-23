@@ -1,0 +1,10 @@
+Cat:
+__module__
+__qualname__
+__init__
+__str__
+Car:
+__module__
+__qualname__
+__init__
+__str__
